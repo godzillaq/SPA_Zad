@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Fill in a form</title>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	
+	<style>
+	<!--div 
+	{
+		margin: 0 auto;
+		width: 200px;
+	}-->
+	</style>
+
+</head>
+
+<body>
+	<p style="text-align: center">
+		<img src="http://wiki.psrp.org.pl/images/7/75/UEK_logotyp_zielen.jpg" width="250px" height="200px"></img>
+	</p>
+	<div>
+		<label for="surname">Surname (family name)</label>
+		<input id="surname" name="surname" required="" type="text">
+	</div>
+	
+	<div>
+		<label for="names">Name (names) /first name/</label>
+		<input id="names" name="names" required="" type="text">
+	</div>
+	
+	<div>
+		<label for="gender">Gender</label>
+		<label class="radio-inline" for="gender-0">
+			<input name="gender" id="gender-0" value="male" checked="checked" type="radio">male</label>
+		<label class="radio-inline" for="gender-1"><input name="gender" id="gender-1" value="female" type="radio">female</label>
+	</div>
+
+	<div>
+		<label for="fathersName">Father's first name</label>
+		<input id="fathersName" name="fathersName" placeholder="" required="" type="text">
+	</div>
+
+	<div>
+		<label for="mothersName">Mother's first name</label>
+		<input id="mothersName" name="mothersName" placeholder="" required="" type="text">		
+	</div>
+	
+	<div>
+		<label for="birthDate">Date of birth</label>
+			<input id="birthDate" name="birthDate" placeholder="" required="" type="text">
+			<span>dd-mm-yyyy</span>
+	</div>
+
+	<div>
+		<label for="placeOfBirth">Place of birth</label>
+			<input id="placeOfBirth" name="placeOfBirth" placeholder="" required="" type="text">
+			<span class="help-block">as in your passport/ID Card</span>
+	</div>
+
+	<div>
+		<label for="citizenship">Citizenship</label>
+		<select id="citizenship" name="citizenship"></select>
+	</div>
+	
+	<div class="form-group">
+		<label for="sumbitButton"></label>
+		<button type="button" id="sumbitButton" name="sumbitButton" onclick="storeData()">Submit</button>
+	</div>
+	
+	<script>
+		var objectData = {
+			surname: "",
+			names: "",
+			gender: "",
+			fathersName: "",
+			mothersName: "",
+			birthDate: "",
+			placeOfBirth: "",
+			citizenship: ""
+		}
+		/*var countryList = data.map(function (country) {
+			return country.name
+		})
+		for (var i = 0; i < countryList.length; i++) {
+			$('#citizenship').append($('<option>', {
+				value: countryList[i],
+				text: countryList[i]
+			}));
+		}*/
+		function display() {
+				
+			alert("surname: " +  objectData.surname);
+			alert("names: " + objectData.names);
+			alert("gender: " + objectData.gender);
+			alert("fathersName: " + objectData.fathersName);
+			alert("mothersName: " + objectData.mothersName);
+			alert("birthDate: " + objectData.birthDate);
+			alert("placeOfBirth: " + objectData.placeOfBirth);
+			alert("citizenship: " + objectData.citizenship);
+		}
+		function storeData() {
+			objectData = {
+				surname: $("#surname")[0].value,
+				names: $("#names")[0].value,
+				gender: $('input[name="gender"]:checked').val(),
+				fathersName: $("#fathersName")[0].value,
+				mothersName: $("#mothersName")[0].value,
+				birthDate: $("#birthDate")[0].value,
+				placeOfBirth: $("#placeOfBirth")[0].value,
+				citizenship: $("#citizenship")[0].value
+			}
+			display();
+		}
+	</script>
+	
+</body>
+
+</html>

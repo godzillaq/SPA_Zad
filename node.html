@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Create DOM elements</title>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div id="tabelka"></div>
+	<script>
+		// Create table.
+		var tabela = document.createElement('table');
+		tabela.border = "2px solid ";
+		tabela.cellSpacing = "0";
+		var naglowek1 = tabela.insertRow(0);
+		naglowek1.style.backgroundColor = "#808090";
+		var row1col1 = naglowek1.insertCell(0);
+		row1col1.innerHTML = 'Email';
+		var row1col2 = naglowek1.insertCell(1);
+		row1col2.innerHTML = 'Connecting to the Internet';
+		DodajWiersz('receive/get/open an email', 'use/access/log onto the Internet', tabela);
+		DodajWiersz('exchange email addresses', 'access/connect to/locate the server', tabela);
+		DodajWiersz('open/send/contain an attachment', 'browse/surf/search/scour the Internet', tabela);
+		DodajWiersz('open/check your inbox', 'install/use/configure a firewall', tabela);
+		
+		function DodajWiersz(Tekst1, Tekst2, Tab)
+		{	
+			var wiersz = Tab.insertRow(1);
+			var cell1 = wiersz.insertCell(0);
+			var cell2 = wiersz.insertCell(1);
+			cell1.innerHTML = Tekst1;
+			cell2.innerHTML = Tekst2;
+		};
+		var div = document.getElementById('tabelka');
+		div.appendChild(tabela);
+	</script>
+</body>
+
+</html>

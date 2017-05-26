@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Change colour</title>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<h1 id = "tytul">Another Brick in the Wall</h1>
+		<h3 id = "nazwa">Pink Floyd</h3>
+		<p id = "tekst">We don't need no education<br>
+		We don't need no thought control<br>
+		No dark sarcasm in the classroom<br>
+		Teachers leave them kids alone<br>
+		Hey! Teachers! Leave them kids alone<br>
+		All in all it's just another brick in the wall<br>
+		All in all you're just another brick in the wall</p>
+		
+		<p style="visibility: hidden;" id = "opis">Pink Floyd were an English rock band formed in London.<br>
+		They achieved international acclaim with their progressive<br>
+		and psychedelic music.</p>
+		
+		<script>
+			// a JavaScript code here ...
+
+			$("#tytul").click
+			(
+				function()
+				{
+					$("#tytul").text($("#tytul").text() + " Part 2");
+				}
+			);
+
+			$("#nazwa").click
+			(
+				function()
+				{
+					$("#opis").css("visibility", "visible");				
+				}
+			);
+
+			$("#tekst").click
+			(
+				function()
+				{
+					$("#tekst").css("font-style", "italic");
+				}
+			);
+
+			$("body").dblclick
+			(
+				function()
+				{
+					$("body").css("background-color", "yellow");	
+				}
+			);
+
+	
+			/*$("#tekst").select
+			(
+				function()
+				{
+					$("#tekst").text("font-style");	
+				}
+			);*/
+
+			
+			$("#opis").click
+			(
+				function()
+				{
+					$("body").append("<img src=\"https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg\" style=\"width:304px;height:228px;\">");
+				}
+			);
+
+			
+
+			
+
+			
+		</script>
+	</body>
+</html>

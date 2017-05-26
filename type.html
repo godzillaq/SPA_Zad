@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Typing test</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<h1>How fast are your fingers?</h1>
+	<h3>You have 30 seconds. Just start typing...</h3>
+	<p>Nam strzelać nie kazano. - Wstąpiłem na działo<br> I spójrzałem na pole; dwieście armat grzmiało.<br> Artyleryi ruskiej
+		ciągną się szeregi,<br> Prosto, długo, daleko, jako morza brzegi;<br> I widziałem ich wodza: przybiegł, mieczem skinął<br>		I jak ptak jedno skrzydło wojska swego zwinął;<br> Wylewa się spod skrzydła ściśniona piechota<br> Długą czarną kolumną,
+		jako lawa błota,<br> Nasypana iskrami bagnetów. Jak sępy<br> Czarne chorągwie na śmierć prowadzą zastępy.<br> Przeciw nim
+		sterczy biała, wąska, zaostrzona,<br> Jak głaz bodzący morze, reduta Ordona.</p>
+
+	<textarea id="poleTekst" rows="15" cols="50"></textarea><br>
+
+	<div id="demo">
+		30s
+	</div>
+
+	<div id="summary">
+
+	</div>
+
+	<script>
+		var isStarted = false;
+		function startTime() {
+			var date = new Date();
+			date.setSeconds(date.getSeconds() + 30);
+			countDownDate = date.getTime();
+			var x = setInterval(function () {
+				var now = new Date().getTime();
+				var distance = countDownDate - now;
+				var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				document.getElementById("demo").innerHTML = seconds + "s ";
+				if (distance < 0) {
+					clearInterval(x);
+					document.getElementById("demo").innerHTML = "STOP";
+					podsuma();
+				}
+			}, 1000);
+		}		
+		
+		$("#poleTekst").on("change keyup paste", function() {
+			if (!isStarted) {
+				isStarted = true;
+				startTime();
+			}
+		});
+		
+		function podsuma() {
+			var text = $("#poleTekst").text();
+			var znaki = text.length;
+			var slowa = text.split(/\b\S+\b/g).length - 1;
+			var linie = text.split("\n").length;
+			var info   = linie + " linie, " + linie + " słowa, " + znaki + " znaki";
+			alert(info);
+		}
+	</script>
+
+</body>
+
+</html>
